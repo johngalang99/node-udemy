@@ -18,7 +18,7 @@ const requestHandler = (req, res) => {
     return req.on('end', () => {
       const parsedBody = Buffer.concat(body).toString()
       console.log(parsedBody)
-      fs.writeFile('message.txt', message, err => {
+      fs.writeFile('message.txt', parsedBody, err => {
         res.statusCode = 302;
         res.setHeader('Location', '/')
         return res.end()
